@@ -417,5 +417,12 @@ footer {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 20px;
   }
+  .quantitize-btn {
+    border-radius: 0.5rem;
+    height: 18px;
+    margin: 0.1rem;
+    width: 18px;
+    padding: 0px;
+  }
   
 }

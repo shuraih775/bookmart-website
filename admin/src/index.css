@@ -17,6 +17,7 @@ a:hover {
   height: 10rem;
   border: 0.1rem solid #eee;
   margin-bottom: 0.1rem;
+  padding-top: 25px;
 }
 
 .user-print{
@@ -381,5 +382,12 @@ main {
     padding-left: 15%;
     align-items: center;
     justify-content: space-evenly;
+  }
+  .quantitize-btn {
+    border-radius: 0.5rem;
+    height: 18px;
+    margin: 0.1rem;
+    width: 18px;
+    padding: 0px;
   }
 }

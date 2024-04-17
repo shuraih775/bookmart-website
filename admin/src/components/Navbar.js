@@ -14,13 +14,13 @@ function NN() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" expanded={expanded}>
       <Container>
-        <Navbar.Brand href="#home">College Bookmart</Navbar.Brand>
+        <Navbar.Brand href="#home">College Bookmart-Admin</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(!expanded)} />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link className="nav-link" to="/" onClick={handleLinkClick}>
+            {/* <Link className="nav-link" to="/" onClick={handleLinkClick}>
               Home
-            </Link>
+            </Link> */}
             <Link className="nav-link" to="/stationery" onClick={handleLinkClick}>
               Stationery
             </Link>
