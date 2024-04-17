@@ -119,10 +119,10 @@ function CartPage() {
         {cartItems.length > 0 ?(
           <>
         <div className='cart-items-desc'>
-          <div style={{fontSize:'18px'}}>Name</div>
-          <div style={{fontSize:'18px'}}>Price</div>
-          <div style={{fontSize:'18px'}}>Quantity</div>
-          <div style={{fontSize:'18px'}}>Total</div>
+          <div >Name</div>
+          <div >Price</div>
+          <div >Quantity</div>
+          <div >Total</div>
         </div>
         {cartItems.map((item, index) => (
           <div key={index} className="cart-item">
