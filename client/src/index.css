@@ -427,7 +427,10 @@ footer {
     padding: 0px;
   }
   .cart-items-desc div{
-    font-size: 15px;
+    font-size: 13px;
+  }
+  .cart-item div{
+    font-size: 10px;
   }
   
 }
