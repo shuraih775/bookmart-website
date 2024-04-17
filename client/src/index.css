@@ -431,6 +431,15 @@ footer {
   }
   .cart-item div{
     font-size: 10px;
+    width:20%
   }
+  
+  .cart-quant{
+    width:35%
+  }
+  .cart-item-name{
+    width:25%;
+  }
+
   
 }

@@ -119,16 +119,16 @@ function CartPage() {
         {cartItems.length > 0 ?(
           <>
         <div className='cart-items-desc'>
-          <div >Name</div>
+          <div id="cart-item-name" >Name</div>
           <div >Price</div>
-          <div >Quantity</div>
+          <div id="cart-quant">Quantity</div>
           <div >Total</div>
         </div>
         {cartItems.map((item, index) => (
           <div key={index} className="cart-item">
-            <div>{item.name}</div>
+            <div id="cart-item-name">{item.name}</div>
             <div>Rs. {item.price}</div>
-            <div>
+            <div id="cart-quant">
               
               {item.quantity}{'\u00A0\u00A0'} 
               <button className='quantitize-btn' onClick={() => handleQuantityChange(index, 'increment')}>+</button>
