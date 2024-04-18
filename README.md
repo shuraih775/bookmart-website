@@ -3,9 +3,7 @@
 ## Overview
 The College BookMart Website is a platform designed to streamline the process of ordering stationery and printing documents for students. It provides an online solution for students to conveniently access essential resources without the need to visit external bookstores.
 
-## Demo
 
-Check demo/ for demo videos.
 
 ## Installation
 To run the project locally, follow these steps:
@@ -29,7 +27,7 @@ cd server
 npm install
 
 #installing dependencies for the admin side (considering you are at the root folder of project)
-cd server/admin
+cd admin
 npm install
 
 ```
@@ -53,12 +51,19 @@ npm install -g nodemon
 nodemon server.js
 
 #Starting admin side (considering you are at the root folder of project)
-cd server/admin
+cd admin
 npm start
 ```
-#Important Note: Admin needs to be created manually. If you are directly entering a document in the users collection to create admin don't 
-                 forget to hash the password before entering the document. Or else (easy way) just register the admin as regular user
-                 and then go to your users collection edit the document and assign true to isAdmin.
+#Important Note: -> Admin needs to be created manually. If you are directly entering a document in the users collection to create admin don't 
+                    forget to hash the password before entering the document. Or else (easy way) just register the admin as regular user
+                    and then go to your users collection edit the document and assign true to isAdmin.
+
+                 -> don't forget to change all the requests(links) on the admin and client side, to the to the address where your server is  
+                    hosted.
+
+                 -> also change the the connection string to the mongodb server.(in server/config/db.js)
+
+                 -> change the link to the admin side(in server/controllers/auth.js)
 
 ## Usage
 1. Register or log in to your account on the College Bookstore Website.
