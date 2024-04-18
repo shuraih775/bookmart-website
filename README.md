@@ -54,7 +54,8 @@ nodemon server.js
 cd admin
 npm start
 ```
-#Important Note: -> Admin needs to be created manually. If you are directly entering a document in the users collection to create admin don't 
+## Important Note: 
+                 -> Admin needs to be created manually. If you are directly entering a document in the users collection to create admin don't 
                     forget to hash the password before entering the document. Or else (easy way) just register the admin as regular user
                     and then go to your users collection edit the document and assign true to isAdmin.
                  
