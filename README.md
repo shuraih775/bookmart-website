@@ -31,7 +31,7 @@ cd admin
 npm install
 
 ```
-4. install MongoDB and create a database named 'bookmart_website' and add the following collections
+4. Install MongoDB and create a database named 'bookmart_website' and add the following collections
  -users
  -uploadedfiles
  -products
@@ -57,7 +57,7 @@ npm start
 #Important Note: -> Admin needs to be created manually. If you are directly entering a document in the users collection to create admin don't 
                     forget to hash the password before entering the document. Or else (easy way) just register the admin as regular user
                     and then go to your users collection edit the document and assign true to isAdmin.
-
+                 
                  -> don't forget to change all the requests(links) on the admin and client side, to the to the address where your server is  
                     hosted.
 
