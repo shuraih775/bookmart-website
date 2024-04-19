@@ -5,7 +5,7 @@ The College BookMart Website is a platform designed to streamline the process of
 
 ## Deployment Link
 [Client Side](https://collegebookmart.netlify.app/)
-[Admin Side] (https://collegemartadmin.netlify.app/)
+[Admin Side](https://collegemartadmin.netlify.app/)
 
 ## Installation
 To run the project locally, follow these steps:
