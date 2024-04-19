@@ -8,7 +8,6 @@ The College BookMart Website is a platform designed to streamline the process of
 
 [Admin Side](https://collegemartadmin.netlify.app/)
 
-[Server](https://bookmart-website.onrender.com)
 
 ## Installation
 To run the project locally, follow these steps:
