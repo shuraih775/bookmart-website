@@ -3,7 +3,9 @@
 ## Overview
 The College BookMart Website is a platform designed to streamline the process of ordering stationery and printing documents for students. It provides an online solution for students to conveniently access essential resources without the need to visit external bookstores.
 
-
+## Deployment Link
+[Client Side](https://collegebookmart.netlify.app/)
+[Admin Side] (https://collegemartadmin.netlify.app/)
 
 ## Installation
 To run the project locally, follow these steps:
