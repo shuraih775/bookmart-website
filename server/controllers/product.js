@@ -114,10 +114,15 @@ const productController = {
   },
 
   update: async (req, res) => {
-    const id = req.params.product_id;
+    const id = req.body._id;
     
     
-    const { name, price, availability,type } = req.body;
+    
+    const name = req.body.name;
+    const type = req.body.type;
+    const subtype = req.body.subtype;
+    const price = req.body.price;
+    const availability = req.body.availability;
 
     try {
        
