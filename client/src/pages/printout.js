@@ -10,6 +10,7 @@ function PrintoutPage() {
   const [msg, setMsg] = useState("");
   const [status, setStatus] = useState(false);
   const [doRedirect, setDoRedirect] = useState(false);
+  const [selectedColor, setSelectedColor] = useState('black and white');
 
   const handleClosePopup = (doredirect) => {
     setShowPopup(false);
@@ -18,10 +19,19 @@ function PrintoutPage() {
     }
     
   };
+  const handleColorChange = (event) => {
+    setSelectedColor(event.target.value);
+  };
   const handleUpload = (e) => {
     e.preventDefault();
     const files = fileInputRef.current.files;
-
+    if(files.length === 0){
+      setMsg('Select atleast one file to upload!');
+          setStatus(false);
+          setDoRedirect(false);
+          setShowPopup(true);
+          return;
+    }
     
 
     const formData = new FormData();
@@ -42,7 +52,7 @@ function PrintoutPage() {
     
 
     
-    axios.post('https://bookmart-website.onrender.com/api/upload/', formData, {
+    axios.post('http://localhost:5000/api/upload/', formData, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'multipart/form-data'
@@ -80,6 +90,27 @@ function PrintoutPage() {
       <form id="uploadForm" onSubmit={handleUpload} >
         <label htmlFor="pdfFiles">Select PDF Files To Upload:</label>
         <input  type="file" id="files" name="files" accept=".pdf" multiple ref={fileInputRef} />
+        
+        <div className='print-div'>
+          <label>Color:</label>
+          <label>
+        <input 
+          type="radio"
+          value="Color"
+          checked={selectedColor === 'Color'}
+          onChange={handleColorChange}
+        />
+        Colored 
+      </label>
+      <label>
+        <input 
+          type="radio"
+          value="black and white"
+          checked={selectedColor === 'black and white'}
+          onChange={handleColorChange}
+        />
+       Black n White
+      </label></div>
         <button className='btn-1' type="submit">Upload</button>
       </form>
      

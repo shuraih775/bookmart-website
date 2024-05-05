@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Popup from './popup';
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus,faMinus } from '@fortawesome/free-solid-svg-icons';
+
 
 function CartPage() {
   const handleClosePopup = (doredirect) => {
@@ -56,7 +59,7 @@ function CartPage() {
       console.log(`${key}: ${value}`);
     });
     
-    await axios.post('https://bookmart-website.onrender.com/api/orders', formData, {
+    await axios.post('http://localhost:5000/api/orders', formData, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'multipart/form-data'
@@ -119,20 +122,23 @@ function CartPage() {
         {cartItems.length > 0 ?(
           <>
         <div className='cart-items-desc'>
-          <div id="cart-item-name" >Name</div>
-          <div >Price</div>
-          <div id="cart-quant">Quantity</div>
-          <div >Total</div>
+          <div>Name</div>
+          <div>Price</div>
+          <div>Quantity</div>
+          <div>Total</div>
         </div>
         {cartItems.map((item, index) => (
           <div key={index} className="cart-item">
-            <div id="cart-item-name">{item.name}</div>
+            <div>{item.name}</div>
             <div>Rs. {item.price}</div>
-            <div id="cart-quant">
-              
-              {item.quantity}{'\u00A0\u00A0'} 
-              <button className='quantitize-btn' onClick={() => handleQuantityChange(index, 'increment')}>+</button>
-              <button className='quantitize-btn' onClick={() => handleQuantityChange(index, 'decrement')}>-</button>
+            <div>
+              <div>
+              {item.quantity}
+              </div>
+              <div>
+              <FontAwesomeIcon icon={faPlus} className="quantitize-btn" onClick={() => handleQuantityChange(index, 'increment')} />
+              <FontAwesomeIcon icon={faMinus} className="quantitize-btn" onClick={() => handleQuantityChange(index, 'decrement')} />
+              </div>
             </div>
             <div>Rs. {item.price * item.quantity}</div>
             
