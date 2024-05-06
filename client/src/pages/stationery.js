@@ -147,7 +147,7 @@ popupContainer.querySelector('#goToCart').addEventListener('click', () => {
     <>
     <div className='filter-div'>
       {!showFilters ? (
-  <button className='btn-2' onClick={() => setShowFilters(!showFilters)}>Filter</button>
+  <button className='btn-1' id='filter-btn'  onClick={() => setShowFilters(!showFilters)}>Filter</button>
 ) : (
   <></>
 )}
@@ -177,7 +177,7 @@ popupContainer.querySelector('#goToCart').addEventListener('click', () => {
             </div>
             
             
-            <button className='btn-1' style={{marginRight:'0.5rem'}} onClick={handleApplyFilters}>Apply Filters</button>
+            <button className='btn-1'  style={{marginRight:'0.5rem'}} onClick={handleApplyFilters}>Apply Filters</button>
             <button className='btn-1' style={{marginLeft:'0.5rem'}}  onClick={handleResetFilters}>Reset</button>
           </div>
         )}
@@ -190,9 +190,11 @@ popupContainer.querySelector('#goToCart').addEventListener('click', () => {
               <div>
                 <p>{product.name}</p>
                 <b><p>Rs. {product.price}</p></b>
-                <p style={{fontSize:'0.8rem'}}>({product.type} - {product.subtype})</p>
+                <p style={{fontSize:'0.55rem'}}>({product.type} - {product.subtype})</p>
               </div>
-              <button onClick={() => openPopup(product.name, product.price)} className="btn-1">Add to Cart</button>
+              <div style={{height:'',alignItems:'center',paddingBottom:'0%'}}>
+              <button id='add_btn' onClick={() => openPopup(product.name, product.price)} className="btn-1">Add to Cart</button>
+              </div>
             </div>
           ))}
         </div>

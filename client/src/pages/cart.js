@@ -90,7 +90,7 @@ function CartPage() {
      
     });
     
-    sessionStorage.removeItem('cart');
+    localStorage.removeItem('cart');
     setCartItems([]);
     setTotalAmount(0); 
   } catch (error) {
@@ -109,7 +109,7 @@ function CartPage() {
       updatedCartItems.splice(index, 1);
     }
     setCartItems(updatedCartItems);
-    sessionStorage.setItem('cart', JSON.stringify(updatedCartItems));
+    localStorage.setItem('cart', JSON.stringify(updatedCartItems));
     const total = updatedCartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
     setTotalAmount(total);
   };
