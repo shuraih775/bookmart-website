@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const uploadedSchema = new mongoose.Schema({
+
     username: {
         type: String,
         required: true,
@@ -13,16 +14,20 @@ const uploadedSchema = new mongoose.Schema({
         name:String, 
         size: Number 
     }],
+    Color:{
+        type:String
+    },
+    isReport:{
+        type:String
+    },
+    department:{
+        type:String
+    },
     uploadDate: {
         type: Date,
         default: Date.now
     }
-    // ,
-    // transactionId: {
-    //     type: String,
-    //     ref:'Transaction',
-    //     unique: true
-    // }
+    
     
 });
 

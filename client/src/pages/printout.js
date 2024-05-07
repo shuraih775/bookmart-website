@@ -12,17 +12,18 @@ function PrintoutPage() {
   const [doRedirect, setDoRedirect] = useState(false);
   const [selectedColor, setSelectedColor] = useState('black and white');
   const [isReport, setIsReport] = useState(false);
-  
+  const [department, setDepartment] = useState('');
+
   const DepartmentDropdown = () => {
-    const [department, setDepartment] = useState('');
+    
   
     const handleDepartmentChange = (e) => {
       setDepartment(e.target.value);
     };
 
     return (
-      <div >
-        <label htmlFor="department">Select Department:</label>
+      <div className='dept-div'>
+        <label htmlFor="department">Department:</label>
         <select id="department" value={department} onChange={handleDepartmentChange}>
           <option value="">Select Department</option>
           <option value="cse">Computer Science and Engineering (CSE)</option>
@@ -65,6 +66,15 @@ function PrintoutPage() {
     for (let i = 0; i < files.length; i++) {
       formData.append('files', files[i]);
     }
+    formData.append('Color',selectedColor);
+    formData.append('isReport',isReport.toString());
+    if(isReport){
+      formData.append('dept',department);
+    }
+    else{
+      formData.append('dept','');
+    }
+    
     let token = null;
     try{
       token = JSON.parse(sessionStorage.getItem('token'));
@@ -120,8 +130,8 @@ function PrintoutPage() {
           <label>
             <input 
               type="radio"
-              value="Color"
-              checked={selectedColor === 'Color'}
+              value="Colored"
+              checked={selectedColor === 'Colored'}
               onChange={handleColorChange}
             />
             Colored 
@@ -141,7 +151,7 @@ function PrintoutPage() {
           <label>
             <input 
               type="radio"
-              value="Color"
+              value="Yes"
               checked={isReport === true}
               onChange={()=>{
                 setIsReport(true);
@@ -152,7 +162,7 @@ function PrintoutPage() {
           <label>
             <input 
               type="radio"
-              value="black and white"
+              value="No"
               checked={isReport === false}
               onChange={()=>{
                 setIsReport(false);

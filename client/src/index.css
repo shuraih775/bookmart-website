@@ -428,6 +428,19 @@ footer {
   cursor: pointer;
 }
 
+.dept-div{
+  display: flex;
+  align-items: center;
+}
+.dept-div label{
+  text-align: left;
+  width: 33.3%;
+}
+.dept-div select{
+  width:60%;
+  margin-bottom: .5rem;
+}
+
 
 @media screen and (max-width: 768px) {
   .order-item,.order-items-desc
@@ -479,5 +492,9 @@ footer {
   .orders-container ul{
     padding-left: 0%;
   }
+  .dept-div select {
+    width: 14rem;
+  }
   
 }
+

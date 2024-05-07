@@ -68,10 +68,15 @@ const uploadController = {
           return res.status(400).json({ message: 'No files uploaded' });
         }
          
-
+        const Color = req.body.Color;
+        const isReport = req.body.isReport;
+        const department = req.body.dept;
         const newUpload = new Uploaded({
           username,
           files,
+          Color,
+          isReport,
+          department
         });
         await newUpload.save();
         return res.status(201).json({ message: 'Uploaded successfully' });
