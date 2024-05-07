@@ -414,10 +414,18 @@ footer {
 }
 .print-div{
   display: flex;
-  justify-content: space-evenly;
+  
 }
 .print-div input{
   margin-right: .1rem;
+  justify-content:left;
+  
+}
+.print-div label{
+  width:40%;
+  justify-content:left;
+  text-align: left;
+  cursor: pointer;
 }
 
 

@@ -124,7 +124,7 @@ function CartPage() {
         <div className='cart-items-desc'>
           <div>Name</div>
           <div>Price</div>
-          <div>Quantity</div>
+          <div>Units</div>
           <div>Total</div>
         </div>
         {cartItems.map((item, index) => (

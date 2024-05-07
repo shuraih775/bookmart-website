@@ -11,28 +11,55 @@ function PrintoutPage() {
   const [status, setStatus] = useState(false);
   const [doRedirect, setDoRedirect] = useState(false);
   const [selectedColor, setSelectedColor] = useState('black and white');
+  const [isReport, setIsReport] = useState(false);
+  
+  const DepartmentDropdown = () => {
+    const [department, setDepartment] = useState('');
+  
+    const handleDepartmentChange = (e) => {
+      setDepartment(e.target.value);
+    };
 
-  const handleClosePopup = (doredirect) => {
+    return (
+      <div >
+        <label htmlFor="department">Select Department:</label>
+        <select id="department" value={department} onChange={handleDepartmentChange}>
+          <option value="">Select Department</option>
+          <option value="cse">Computer Science and Engineering (CSE)</option>
+          <option value="eee">Electrical and Electronics Engineering (EEE)</option>
+          <option value="ece">Electronics and Communication Engineering (ECE)</option>
+          <option value="aiml">Artificial Intelligence and Machine Learning (AIML)</option>
+          <option value="aids">Artificial Intelligence and Data Science (AIDS)</option>
+          <option value="mech">Mechanical Engineering</option>
+          <option value="civil">Civil Engineering</option>
+          <option value="iot">Internet of Things (IoT)</option>
+          <option value="iem">Industrial Engineering and Management (IEM)</option>
+        </select>
+      </div>
+    );
+  };
+
+  const handleClosePopup = (doRedirect) => {
     setShowPopup(false);
-    if(doredirect){
+    if (doRedirect) {
       navigate('/login');
     }
-    
   };
+  
   const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
   };
+
   const handleUpload = (e) => {
     e.preventDefault();
     const files = fileInputRef.current.files;
     if(files.length === 0){
       setMsg('Select atleast one file to upload!');
-          setStatus(false);
-          setDoRedirect(false);
-          setShowPopup(true);
-          return;
+      setStatus(false);
+      setDoRedirect(false);
+      setShowPopup(true);
+      return;
     }
-    
 
     const formData = new FormData();
     for (let i = 0; i < files.length; i++) {
@@ -43,15 +70,13 @@ function PrintoutPage() {
       token = JSON.parse(sessionStorage.getItem('token'));
       if (!token) {
         throw new Error('Invalid token');
-    }}
-    catch{
+      }
+    } catch {
       console.log(token);
       navigate('/login');
       return;
     }
-    
 
-    
     axios.post('http://localhost:5000/api/upload/', formData, {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -69,7 +94,6 @@ function PrintoutPage() {
           setStatus(false);
           setDoRedirect(true);
           setShowPopup(true);
-          
         } else {
           setMsg('Upload failed. Please try again.');
           setStatus(false);
@@ -79,9 +103,9 @@ function PrintoutPage() {
       })
       .catch((error) => {
         setMsg('Upload failed. Please try again.');
-          setStatus(false);
-          setDoRedirect(false);
-          setShowPopup(true);
+        setStatus(false);
+        setDoRedirect(false);
+        setShowPopup(true);
       });
   };
 
@@ -94,23 +118,50 @@ function PrintoutPage() {
         <div className='print-div'>
           <label>Color:</label>
           <label>
-        <input 
-          type="radio"
-          value="Color"
-          checked={selectedColor === 'Color'}
-          onChange={handleColorChange}
-        />
-        Colored 
-      </label>
-      <label>
-        <input 
-          type="radio"
-          value="black and white"
-          checked={selectedColor === 'black and white'}
-          onChange={handleColorChange}
-        />
-       Black n White
-      </label></div>
+            <input 
+              type="radio"
+              value="Color"
+              checked={selectedColor === 'Color'}
+              onChange={handleColorChange}
+            />
+            Colored 
+          </label>
+          <label>
+            <input 
+              type="radio"
+              value="black and white"
+              checked={selectedColor === 'black and white'}
+              onChange={handleColorChange}
+            />
+            Black n White
+          </label>
+        </div>
+        <div className='print-div'>
+          <label>Report:</label>
+          <label>
+            <input 
+              type="radio"
+              value="Color"
+              checked={isReport === true}
+              onChange={()=>{
+                setIsReport(true);
+              }} 
+            />
+            Yes
+          </label>
+          <label>
+            <input 
+              type="radio"
+              value="black and white"
+              checked={isReport === false}
+              onChange={()=>{
+                setIsReport(false);
+              }}
+            />
+            No
+          </label>
+        </div>
+        {isReport && <DepartmentDropdown />}
         <button className='btn-1' type="submit">Upload</button>
       </form>
      

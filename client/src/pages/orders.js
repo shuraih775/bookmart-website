@@ -63,7 +63,7 @@ function Order() {
                     <div className='order-items-desc'>
                             <div>Name</div>
                             <div>Price</div>
-                            <div>Quantity</div>
+                            <div>Units</div>
                             <div>Total</div>
                           </div>
                       {order.order_items.map((item, idx) => (
