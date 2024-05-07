@@ -20,7 +20,7 @@ function Order() {
         setLoggedin(false);
       } else {
         setLoggedin(true);
-        const response = await axios.get('http://localhost:5000/api/orders/', {
+        const response = await axios.get('https://bookmart-website.onrender.com/api/orders/', {
           headers: {
             Authorization: `Bearer ${token}`
           }

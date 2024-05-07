@@ -87,7 +87,7 @@ function PrintoutPage() {
       return;
     }
 
-    axios.post('http://localhost:5000/api/upload/', formData, {
+    axios.post('https://bookmart-website.onrender.com/api/upload/', formData, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'multipart/form-data'

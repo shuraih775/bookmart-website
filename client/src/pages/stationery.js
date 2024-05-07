@@ -41,9 +41,9 @@ function StationeryPage() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/product/available');
+      const response = await axios.get('https://bookmart-website.onrender.com/api/product/available');
       const productsWithImageUrl = await Promise.all(response.data.map(async product => {
-        const imgResponse = await axios.get(`http://localhost:5000/api/product/${product.name}/image`, { responseType: 'blob' });
+        const imgResponse = await axios.get(`https://bookmart-website.onrender.com/api/product/${product.name}/image`, { responseType: 'blob' });
         const imageUrl = URL.createObjectURL(imgResponse.data);
         return { ...product, img: imageUrl };
       }));
@@ -119,7 +119,7 @@ popupContainer.querySelector('#goToCart').addEventListener('click', () => {
     useEffect(() => {
       if (!img && !localStorage.getItem(productName)) {
         
-        axios.get(`http://localhost:5000/api/product/${productName}/image`, { responseType: 'blob' })
+        axios.get(`https://bookmart-website.onrender.com/api/product/${productName}/image`, { responseType: 'blob' })
           .then(response => {
             const imageUrl = URL.createObjectURL(response.data);
             localStorage.setItem(productName, imageUrl);
